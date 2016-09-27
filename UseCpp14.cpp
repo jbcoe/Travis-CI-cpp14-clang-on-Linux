@@ -1,3 +1,5 @@
+// Code taken from http://en.cppreference.com/w/cpp/memory/align
+
 #include <iostream>
 #include <memory>
  
