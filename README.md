@@ -29,11 +29,17 @@ please take a look and have a go!
 
 Steps:
 
-1) Fork this repository
-2) Create a named branch.
-3) Make changes to CMakeLists.txt and/or .travis.yml
-4) Add a PR.
-5) SUCCESS = Travis-CI builds pass.
-6) WHILE NOT SUCCESS GOTO 2
-7) Write article for Overload.
+1. Fork this repository
+
+2. Create a named branch.
+
+3. Make changes to CMakeLists.txt and/or .travis.yml
+
+4. Add a PR.
+
+5. SUCCESS = Travis-CI builds pass.
+
+6. WHILE NOT SUCCESS GOTO 2
+
+7. Write article for Overload.
 
