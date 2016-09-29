@@ -13,7 +13,7 @@ matrix:
       addons: &clang37
         apt:
           sources: ['llvm-toolchain-precise-3.7', 'ubuntu-toolchain-r-test']
-          packages: ['clang-3.7']
+          packages: ['clang-3.7, g++-6']
       env: COMPILER='clang++-3.7'
 
     - os: linux
@@ -21,7 +21,7 @@ matrix:
       addons: &clang38
         apt:
           sources: ['llvm-toolchain-precise-3.8', 'ubuntu-toolchain-r-test']
-          packages: ['clang-3.8']
+          packages: ['clang-3.8, g++-6']
       env: COMPILER='clang++-3.8'
 
 #    # 2/ Linux GCC Builds
@@ -60,6 +60,10 @@ install:
       CMAKE_URL="http://www.cmake.org/files/v3.3/cmake-3.3.2-Linux-x86_64.tar.gz"
       mkdir cmake && travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
       export PATH=${DEPS_DIR}/cmake/bin:${PATH}
+      sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 60;
+      sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 60;
+      sudo update-alternatives --config gcc;
+      sudo update-alternatives --config g++;
     elif [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then
       which cmake || brew install cmake
     fi
